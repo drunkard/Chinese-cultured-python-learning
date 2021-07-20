@@ -6,7 +6,7 @@
 ------------
 国际海底光缆：
 
- - https://dev.networkatlas.org/
- - https://cablemap.info/_default.aspx
+ - 新版海缆图，还在开发中： https://dev.networkatlas.org/
+ - 旧版： https://cablemap.info/_default.aspx
 
 
