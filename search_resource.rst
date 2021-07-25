@@ -1,9 +1,16 @@
 搜索相关资源
 ============
 
+编程思想训练
+------------
+ - Scratch https://scratch.mit.edu/
+ - https://code.org/
+
+
 搜索引擎
 --------
-https://cn.bing.com/  微软出的，国内能用
+ - https://cn.bing.com/  微软出的，国内能用。搜索要限定范围，加范围限定词，避免同义词干扰。
+ - https://www.douban.com/  搜索电影、影评、书
 
 
 IP 地址查询
@@ -17,3 +24,5 @@ https://www.ip138.com/  历史久，数据比较全；
 
  - 新版海缆图，还在开发中： https://dev.networkatlas.org/
  - 旧版： https://cablemap.info/_default.aspx
+
+
