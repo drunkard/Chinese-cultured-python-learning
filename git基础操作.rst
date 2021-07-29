@@ -17,3 +17,14 @@ Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分�
 
 然后就可以打开： 文件管理器 -> 主目录 -> python_teaching ，里面就是我们的学习资料。
 
+
+更新
+----
+我改过内容，推送到服务器端以后，内容不会自动更新到你的电脑上，你得自己手动更新，用下面这个命令 ::
+
+        cd python_teaching
+        git pull
+
+        # 或者这个命令
+        git -C py_teach/ pull
+
