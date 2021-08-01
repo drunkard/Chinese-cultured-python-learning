@@ -64,6 +64,7 @@ venv 虚拟环境配置
 但是 tushare 就没有，我们只能在 python 里调用它，比如：
 
 .. code-block:: python
+
     (ve) 14:16:53 /tmp/ve $ python
     Python 3.9.6 (default, Jul 25 2021, 11:21:03)
     [GCC 11.1.0] on linux
@@ -94,6 +95,7 @@ venv 虚拟环境配置
 我们再试试另外一个数据源库 akshare ，先安装 ``pip install akshare`` 。
 
 .. code-block:: python
+
     >>> import akshare as ak
     # 筛选一下和黄金有关的
     >>> [x for x in dir(ak) if 'gold' in x]
