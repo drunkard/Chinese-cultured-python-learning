@@ -2,50 +2,44 @@
 """
 绘制标准的中国国旗
 """
+import sys
 import time
 import turtle as t
 
-debug = True
+debug = False
 
 # 只需定义国旗尺寸即可，五角星位置都是计算出来的
 flag_width = 900
 flag_height = int(flag_width / 3 * 2)
 extra = 10  # 为了让滚动条消失
 
-# 定义五角星位置的小格的边长
-unit = int(flag_width / 30)
 
-# 五角星半径
-radius1 = int(flag_height / 2 / 3)  # 大五角星
-radius2 = int(flag_height / 2 / 10)  # 小五角星
-
-
-def _debug_grid():
+def _debug_grid(width=flag_width, height=flag_height):
     '调试代码，画格子，验证画出来的国旗是否合规'
     if not debug:
         return
     t.pencolor('grey')  # 调试线颜色
     t.speed(0)  # fast, 画得快些
     # draw grid
-    t.seth(0); goto((-flag_width / 2, 0)); t.fd(flag_width)
-    t.seth(90); goto((0, -flag_height / 2)); t.fd(flag_height)
+    t.seth(0); goto((-width / 2, 0)); t.fd(width)
+    t.seth(90); goto((0, -height / 2)); t.fd(height)
 
     # 调试线，小格的竖线
-    for x in range(0, -flag_width // 2, -flag_width // 2 // 15):
+    for x in range(0, -width // 2, -width // 2 // 15):
         goto((x, 0))
         t.seth(90)
-        t.fd(flag_height / 2)
+        t.fd(height / 2)
 
     # 调试线，小格的横线
-    for y in range(0, flag_height // 2, flag_height // 2 // 10):
+    for y in range(0, height // 2, height // 2 // 10):
         goto((0, y))
         t.seth(180)
-        t.fd(flag_width / 2)
+        t.fd(width / 2)
 
     # 小星到大星的连线，用于看小五角星是否指向大五角星中心
-    pos0 = get_star_pos(0)
+    pos0 = get_star_pos(0, width, height)
     for posn in range(1, 5):
-        goto(get_star_pos(posn))
+        goto(get_star_pos(posn, width, height))
         t.setpos(pos0)
 
     print('画完了')
@@ -85,12 +79,16 @@ def draw_star(core_pos, radius, heading):
         t.circle(radius)
 
 
-def get_star_pos(sn, width=flag_width, height=flag_height):
+def get_star_pos(sn, width, height):
     """五角星位置
     sn 是五角星序号
     """
     # if debug:
     #     print('w2={}  h2={}  unit={}'.format(w2, h2, unit))
+
+    # 定义五角星位置的小格的边长
+    unit = int(width / 30)
+
     positions = {
         0: (-unit * 10, unit * 5),  # 大五角星
         1: (-unit * 5, unit * 8),  # 小五角星1
@@ -102,19 +100,26 @@ def get_star_pos(sn, width=flag_width, height=flag_height):
 
 
 def get_star_specs(width, height):
+    # 定义五角星位置的小格的边长
+    unit = int(width / 30)
+
+    # 五角星半径
+    radius1 = int(height / 2 / 3)  # 大五角星
+
     args = []
     # 大星
-    args.append((get_star_pos(0), radius1, 270))
+    args.append((get_star_pos(0, width, height), radius1, 270))
     # TODO 计算正确的角度，不知道怎么计算的话可以估算一个，调试中不断优化
     # 小星1
-    args.append((get_star_pos(1), unit, 33.2))
+    args.append((get_star_pos(1, width, height), unit, 33.2))
     # 小星2
-    args.append((get_star_pos(2), unit, 10))
+    args.append((get_star_pos(2, width, height), unit, 10))
     # 小星3
-    args.append((get_star_pos(3), unit, 343.6))
+    args.append((get_star_pos(3, width, height), unit, 343.6))
     # 小星4
-    args.append((get_star_pos(4), unit, 320))
+    args.append((get_star_pos(4, width, height), unit, 320))
 
+    print(args)
     if debug:
         print('Got star args:\n{}'.format(args))
     return args
@@ -135,9 +140,9 @@ def rim_len(radius):
 
 def draw_flag(width=flag_width, height=flag_height):
     # 设置窗口尺寸
-    t.setup(width=flag_width + extra, height=flag_height + extra)
+    t.setup(width=width + extra, height=height + extra)
     # 设置画布尺寸、背景颜色
-    t.screensize(canvwidth=flag_width, canvheight=flag_height, bg='red')
+    t.screensize(canvwidth=width, canvheight=height, bg='red')
 
     # 更新一下，否则背景色不会即时显示
     t.update()
@@ -155,7 +160,12 @@ def draw_flag(width=flag_width, height=flag_height):
 if __name__ == '__main__':
     if debug:
         t.speed(0)  # fast
-    draw_flag()
+
+    # 读参数，国旗尺寸
+    size  = sys.argv[1]
+    size = int(size)
+
+    draw_flag(width=size * 1.5, height=size)
     _debug_grid()
 
     time.sleep(50)  # 国旗画完窗口就关闭了，让它延后退出
