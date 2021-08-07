@@ -158,12 +158,15 @@ def draw_flag(width=flag_width, height=flag_height):
         t.update()
 
 if __name__ == '__main__':
-    if debug:
-        t.speed(0)  # fast
+    t.speed(0)  # fast
 
     # 读参数，国旗尺寸
-    size  = sys.argv[1]
-    size = int(size)
+    # TODO 判断取到的尺寸是不是数字，不是的话提示一下
+    if len(sys.argv) == 2:
+        size = sys.argv[1]
+        size = int(size)
+    else:
+        size = flag_height
 
     draw_flag(width=size * 1.5, height=size)
     _debug_grid()
