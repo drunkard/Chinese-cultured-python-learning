@@ -9,6 +9,13 @@ True or False ?
 
 .. code-block:: python
 
+   1 == True
+   2 == True
+   0 == False
+
+   1 is True
+   0 is False
+
    -(-1) == 1
    len(bin(5))  # 值是多少？
    complex(1, 2) == complex('1+2j')  # 虚数
