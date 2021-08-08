@@ -16,6 +16,12 @@ True or False ?
    1 is True
    0 is False
 
+   True + True
+   True + False
+   True + True * False
+   type(True)
+   False * True
+
    -(-1) == 1
    len(bin(5))  # 值是多少？
    complex(1, 2) == complex('1+2j')  # 虚数
