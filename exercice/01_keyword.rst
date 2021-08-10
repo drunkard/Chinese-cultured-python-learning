@@ -22,6 +22,12 @@ True or False ?
     type(True)
     False * True
 
+    True > False
+    True > 1
+    True >= 1
+    False > 0
+    False > -10
+
     id(True), id(False)  # 变了么？
 
 
@@ -42,3 +48,26 @@ None 究竟是什么？
     None is not True
 
     id(None)  # 变了么？
+
+
+import 导入模块
+---------------
+为了尽快启动、且快速运行， Python 默认情况下会 **轻装简行** ，不会加载用不到的模块，所有需要用的模块都需要 **手动** 加载。
+
+.. code-block:: python
+
+    import this  # Python 之禅：设计和编写 Python 程序的最佳守则
+
+    # import 导入模块有多种用法，你可以选择最喜欢的、最合适的
+    import turtle
+    import turtle as t
+
+    from turtle import *
+    from turtle import forward, left
+    from turtle import (forward, left)  # 导入太多、一行放不下的时候可以这样用
+
+    from os.path import isdir
+    from os.path import isdir as is_directory
+    from os.path import (isdir as is_directory,
+                         isabs as is_absolute_path,
+                         isfile as is_file)
