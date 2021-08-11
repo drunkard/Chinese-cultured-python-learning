@@ -71,4 +71,6 @@ Deepin 深度Linux上安装 git::
 
     git push --set-upstream gitee master  # 第一次 push 时
     git push
+    git push -f
 
+正常使用的话上面的命令就够用了，遇到问题请参考 `git常见问题 <../git常见问题>`_ 。
