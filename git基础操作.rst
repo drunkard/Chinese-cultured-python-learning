@@ -29,6 +29,18 @@ Deepin 深度Linux上安装 git::
     git -C py_teach/ pull
 
 
+gitee 注册、配置
+----------------
+登录 gitee.com ，注册帐号、登录。成功后再继续下面的步骤。
+新建项目 ``my_program`` ，最好和本地项目同名。
+
+新增 SSH 密钥
+
+新建仓库
+
+gitee 上的准备工作就就绪了。
+
+
 简单工作流实例
 --------------
 一个简单的使用流程实例 ::
@@ -39,9 +51,6 @@ Deepin 深度Linux上安装 git::
     cd my_program
     ls -a
     find .git/
-
-登录 gitee.com ，注册帐号、登录。成功后再继续下面的步骤。
-新建项目 ``my_program`` ，最好和本地项目同名。
 
 本地 git 配置 ::
 
