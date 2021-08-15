@@ -118,11 +118,79 @@ def login_lock():
             time.sleep(retry)
 
 
+def figure_guess1():
+    import random
+
+    def won():
+        print('你赢了')
+
+    def lost():
+        print('你输了')
+
+    def even():
+        print('平手')
+
+    print('石头剪刀布，游戏开始啦')
+    choices = ['石头', '剪刀', '布']
+    while True:
+        computer, human = random.choice(choices), input('请输入你的: ')
+        if human == '石头':
+            if computer == '石头':
+                even()
+            elif computer == '剪刀':
+                won()
+            else:
+                lost()
+        elif human == '剪刀':
+            if computer == '石头':
+                lost()
+            elif computer == '剪刀':
+                even()
+            else:
+                won()
+        elif human == '布':
+            if computer == '石头':
+                won()
+            elif computer == '剪刀':
+                lost()
+            else:
+                even()
+        else:
+            print('你开小差了……')
+
+
+def figure_guess2():
+    import random
+
+    def computer_vs_human(c, h):
+        print(F'DEBUG: 我是{c}, 你是{h}')  # debug
+        if c == h:
+            print('平手')
+        elif (c == '石头' and h == '布') or \
+            (c == '剪刀' and h == '石头') or \
+            (c == '布' and h == '剪刀'):
+            print('你赢了')
+        else:
+            print('你输了')
+
+    print('石头剪刀布，游戏开始啦')
+    choices = ['石头', '剪刀', '布']
+    while True:
+        computer, human = random.choice(choices), input('请输入你的: ')
+        if human in choices:
+            computer_vs_human(computer, human)
+        else:
+            print('你开小差了……')
+
+
 if __name__ == '__main__':
     # trigon_test()
     # isosceles_triangle_test()
     # while True:
     #     right_triangle_test()
 
-    if login_lock():
-        print('登录成功了')
+    # if login_lock():
+    #     print('登录成功了')
+
+    # figure_guess1()
+    figure_guess2()
