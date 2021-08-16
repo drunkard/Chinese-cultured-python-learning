@@ -28,4 +28,13 @@
     for a, b, c in zip(dic.items(), range(5)): print(a, b, c)  # won't work
     for (a, b), c in zip(dic.items(), range(5)): print(a, b, c)
 
+    # 打印字母表
+    for low, up in zip(range(97,123), range(65, 91)): print(chr(low) + chr(up), end='')
+
+    lows, ups = '', ''
+    for low, up in zip(range(97,123), range(65, 91)):
+        lows += chr(low)
+        ups += chr(up)
+    print(F'{lows}\n{ups}')
+
     input
