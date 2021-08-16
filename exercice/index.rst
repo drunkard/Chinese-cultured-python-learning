@@ -3,8 +3,4 @@
 
 拿试题练习有助于更好地理解 Python 编程。
 
-.. toctree::
-   :maxdepth: 2
-   :titlesonly:
-
-    行业笑话 <00_joke>
+`行业笑话 <../00_joke>`_
