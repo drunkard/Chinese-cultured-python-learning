@@ -57,6 +57,8 @@ import 导入模块
 .. code-block:: python
 
     import this  # Python 之禅：设计和编写 Python 程序的最佳守则
+    >>> this
+    <module 'this' from '/usr/lib/python3.9/this.py'>  # 自己看一下这个文件的内容
 
     # import 导入模块有多种用法，你可以选择最喜欢的、最合适的
     import turtle
