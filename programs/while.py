@@ -27,6 +27,25 @@ def sum_numbers(to=100):
     print(F'累加 1-{to} 的总和是 {total}')
 
 
+def tj2(to=100):
+    """while 循环时的条件是否可以任意定义？"""
+    n = 0
+    left = []
+    while n <= to:
+        if n % 2 == 0:
+            left.append(n)
+        n += 1
+    '''
+    while n % 2 == 0:
+        if n > to:
+            break
+        left.append(n)
+        n += 1
+    '''
+    print(F'筛选到的偶数 {left}')
+
+
 if __name__ == '__main__':
     # eat_loop()
-    sum_numbers(100)
+    # sum_numbers(100)
+    tj2()
