@@ -30,6 +30,12 @@ True or False ?
 
     id(True), id(False)  # 变了么？
 
+    # all() 全部为真返回真；any() 任一为真返回真；
+    all([list(), tuple(), dict(), set(), '', None, False, 0])
+    not all([list(), tuple(), dict(), set(), '', None, False, 0])
+    any([list(), tuple(), dict(), set(), '', None, False, 0])
+    not any([list(), tuple(), dict(), set(), '', None, False, 0])
+
 
 None 究竟是什么？
 -----------------

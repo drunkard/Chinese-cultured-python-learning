@@ -3,6 +3,10 @@
 
 .. code-block:: python
 
+    # Python 内置变量、函数等；
+    import builtins
+    dir(builtins)
+
     max
     min
 
