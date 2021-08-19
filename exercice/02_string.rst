@@ -23,6 +23,17 @@
     [ord(x) for x in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
     [ord(x) for x in 'abcdefghijklmnopqrstuvwxyz']
 
+    ord('汉字')  # 能否执行？
+    ord('汉')
+    ord('漢')  # 繁体字：汉
+    chr(27721), chr(28450)
+
+    # 比较一下字符和数字占用的内存数量
+    import sys
+    sys.getsizeof('漢') == sys.getsizeof(ord('漢'))
+    sys.getsizeof('为学日益，为道日损'), sum([sys.getsizeof(ord(c)) for c in '为学日益，为道日损'])
+    sys.getsizeof('A'), sys.getsizeof('a'), sys.getsizeof('大'), sys.getsizeof('龘')
+
     # 拼接、拆分
     plus = [chr(n) for n in range(97, 123) if n%2 == 0] + [chr(n) for n in range(97, 123) if n%2 == 1]
     print(plus)
@@ -38,9 +49,20 @@
     s2.split(',')
     s2.split(', ')
 
+    # 字符串倒序
+    s = 'heeeello'
+    s.split()
+    [c for c in s]
+    [c for c in s][::-1]
+    l = [c for c in s]; l.reverse(); print(l)
+    ''.join([c for c in s][::-1])
+    ''.join(l)
+    ''.join([c for c in s][::-1]) == ''.join(l)
+
 
     'Hello!' * 5  # 结果是什么
 
+    str(int()) * 2
     str(float()) * 2  # 结果是什么？
 
     a = '天高地厚'
