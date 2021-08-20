@@ -31,6 +31,10 @@ def eat_chars_global_keyword():
         time.sleep(sleep)
 
 
+# 其他练习题：
+# 计算1000以下能被3或5整除的数字的和
+
+
 if __name__ == '__main__':
     # print(eat_chars.__doc__)
     # for _ in range(9):
