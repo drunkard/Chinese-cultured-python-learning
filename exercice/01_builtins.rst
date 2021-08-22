@@ -1,20 +1,59 @@
 有趣有用的 Python 内置函数
 ==========================
-
 .. code-block:: python
 
     # Python 内置变量、函数等；
     import builtins
     dir(builtins)
 
+    input
+    open
+    print
+
+    bin
+    oct
+    int
+    hex
+    complex
+    float
+    bytes
+    bytearray
+
+    abs
+    divmod
+    pow
+    round
+
+    str
+    format
+
+    len
+
+    list
+    tuple
+    dict
+    set
+
     max
     min
 
     all
     any
+    bool
 
     filter
     map
+
+
+可迭代对象
+----------
+
+enumerate, zip
+``````````````
+.. code-block:: python
+
+    iter
+    next
 
     # zip()
     alist, blist = range(3), ['石头', '剪刀', '布']
@@ -41,4 +80,27 @@
         ups += chr(up)
     print(F'{lows}\n{ups}')
 
-    input
+    sorted
+    reversed
+
+
+    global
+    nonlocal
+    globals
+    locals
+    vars
+
+    callable
+    compile
+    exec
+    eval
+
+    object
+    super
+
+    property
+    staticmethod
+
+    getattr / hasattr / setattr / delattr
+
+    isinstance / issubclass
