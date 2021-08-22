@@ -119,6 +119,10 @@ def login_lock():
 
 
 def figure_guess1():
+    """figure_guess1()
+
+    石头剪刀布游戏
+    """
     import random
 
     def won():
@@ -193,4 +197,7 @@ if __name__ == '__main__':
     #     print('登录成功了')
 
     # figure_guess1()
-    figure_guess2()
+    # print(figure_guess1.__doc__)
+    # figure_guess2()
+
+    vars()
