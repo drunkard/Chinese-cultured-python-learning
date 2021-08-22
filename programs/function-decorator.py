@@ -1,22 +1,21 @@
 '''装饰器
 '''
 
-"""
 # 装饰器，完整格式
-def outer(func):
-    def inner():
+def outer(func):  # 外层函数，传参数、开路的
+    def inner():  # 内层函数，被装饰函数的实际执行者
         print('执行前，做些小动作')
-        func()
+        func()  # 执行被装饰函数，执行前、后都可以加入你想插入的功能
         print('执行完了')
-    return inner
+        # return func()  # 也可以直接返回函数执行结果
+    return inner  # 这里没有 () ，也就是说，只是返回函数，不执行
 
-@outer
+@outer  # 使用装饰器
 def ff():
     print('被装饰的函数')
 
-# outer()(ff())
-ff()
-"""
+# outer()(ff())  # 不使用装饰器的情况下，类似此种写法
+ff()  # 还是执行原来的函数，但是结果已经被装饰器处理过了
 
 # 实例 - 用于调试
 def debug(func):
