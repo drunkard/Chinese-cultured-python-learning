@@ -171,4 +171,9 @@ if __name__ == '__main__':
     draw_flag(width=size * 1.5, height=size)
     _debug_grid()
 
-    time.sleep(50)  # 国旗画完窗口就关闭了，让它延后退出
+    try:
+        time.sleep(30)  # 国旗画完窗口就关闭了，让它延后退出
+    except KeyboardInterrupt:
+        print('等待中断')
+    else:
+        print('睡醒了')
