@@ -3,26 +3,37 @@ class Nothing:
 
 x = Nothing()
 
+
 class Animal(object):
     pass
 
-class CatFamily(Animal):
+class Carnivores(Animal):
+    food = 'meat'
+
+    def catch(self):
+        return self.food
+
+
+class Lion(Carnivores):
     pass
 
-class Lion(CatFamily):
-    pass
-
-class Tiger(CatFamily):
+class Tiger(Carnivores):
     color = 'yb'
 
     dad = 'tiger'
     mon = 'tiger'
 
-    def __init__(self, color='white'):
+    def __init__(self, name, color='white', food='meat'):
         self.color = color
+        self.food = food
+
 
 class Liger(Lion, Tiger):
     dad = 'lion'
 
 class Tigon(Tiger, Lion):
     pass
+
+
+xiaoming = Tiger('xiaoming', food='cai')
+print(xiaoming.catch())
