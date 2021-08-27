@@ -30,6 +30,17 @@ True or False ?
 
     id(True), id(False)  # 变了么？
 
+    # 链式判断
+    a = 2
+    1 == a <= 3
+    True == a <= 3
+    3 > a > 2
+
+
+批量判断真假
+------------
+.. code-block:: python
+
     # all() 全部为真返回真；any() 任一为真返回真；
     all([list(), tuple(), dict(), set(), '', None, False, 0])
     not all([list(), tuple(), dict(), set(), '', None, False, 0])

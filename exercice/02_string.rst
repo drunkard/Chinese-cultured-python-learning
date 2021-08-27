@@ -78,6 +78,13 @@
     print(c, d)
     id(c) == id(d)  # d 变量已发生变化，所以不再共享同一个对象，新建了一个
 
+    # 统计出现次数
+    from collections import Counter
+    Counter('banana')
+    Counter('hello, hello, python')
+    Counter(['hello', 'hello', 'python'])
+    Counter('hello, hello, python'.split())
+
 
 字符串格式化
 ------------
@@ -90,4 +97,16 @@
 正则表达式 - re 模块
 --------------------
 匹配；
+
+.. code-block:: python
+
+    import re
+
+    # 文本查找
+    text = "The rain in spain"
+    result = re.search("rain", text)
+    print(True if result else False)
+
+
 提取；
+

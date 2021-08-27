@@ -18,3 +18,7 @@
     for k, v in dict2:
         newd[k] = v
 
+    # 字典默认值
+    d = {1: 'one', 2: 'two', 4: 'four'}
+    d.get(3)
+    d.get(3, '这里是默认值')

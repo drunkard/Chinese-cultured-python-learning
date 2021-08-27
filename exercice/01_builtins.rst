@@ -33,16 +33,25 @@
     tuple
     dict
     set
+    frozenset
+    frozenset([1,1,3,2,3])
+    frozenset({1, 2, 3})
 
-    max
-    min
+    # max / min
+    mylist = [1,1,2,3,4,5,6,6,2,2]
+    max(set(list), key=list.count)  # 出现次数最多的元素
 
     all
     any
     bool
 
-    filter
-    map
+    # filter / map
+    num_list = list(range(10))
+    filter(lambda x: x % 2!=0, num_list)
+
+    type
+    id
+    hash
 
 
 可迭代对象
@@ -58,7 +67,7 @@ enumerate, zip
     # zip()
     alist, blist = range(3), ['石头', '剪刀', '布']
     list(zip(alist, blist))
-    dict(zip(alist, blist))
+    dict(zip(alist, blist))  # 两个列表转成字典
 
     dic = dict(zip(alist, blist))  # {0: '石头', 1: '剪刀', 2: '布'}
     list(zip(dic, range(3)))
@@ -90,17 +99,21 @@ enumerate, zip
     locals
     vars
 
-    callable
     compile
-    exec
-    eval
+    exec  # 不返回结果
+    eval  # 返回结果
+
+    def
+    return
+    yield
+
 
     object
     super
 
+    callable
     property
+    classmethod
     staticmethod
-
     getattr / hasattr / setattr / delattr
-
     isinstance / issubclass
