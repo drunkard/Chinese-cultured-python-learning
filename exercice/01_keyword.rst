@@ -77,6 +77,10 @@ import 导入模块
     >>> this
     <module 'this' from '/usr/lib/python3.9/this.py'>  # 自己看一下这个文件的内容
 
+    import sys
+    print(sys.path)
+
+    # 绝对导入
     # import 导入模块有多种用法，你可以选择最喜欢的、最合适的
     import turtle
     import turtle as t
@@ -86,7 +90,58 @@ import 导入模块
     from turtle import (forward, left)  # 导入太多、一行放不下的时候可以这样用
 
     from os.path import isdir
+    is_directory = isdir
     from os.path import isdir as is_directory
     from os.path import (isdir as is_directory,
                          isabs as is_absolute_path,
                          isfile as is_file)
+
+
+    # 相对导入
+    from . import xxx
+    from .. import xxx
+    from ... import xxx
+    from .mod import xxx
+    from ..mod import xxx
+
+
+    # 其他导入方法
+    # __import__ 是Python解释器用的，不是给用户用的
+    os = __import__('os')
+    os = __import__('os.path')  # 不会导入 path
+
+    import importlib
+    os = importlib.import_module('os')
+    path = importlib.import_module('os.path')
+
+
+global / nolocal
+----------------
+.. code-block:: python3
+
+    # https://docs.python.org/zh-cn/3/tutorial/classes.html
+    # 这个例子演示了如何引用不同作用域和名称空间，以及 global 和 nonlocal 会如何影响变量绑定:
+    def scope_test():
+        def do_local():
+            spam = "local spam"
+
+        def do_nonlocal():
+            nonlocal spam
+            spam = "nonlocal spam"
+
+        def do_global():
+            global spam
+            spam = "global spam"
+
+        spam = "test spam"
+        do_local()
+        print("After local assignment:", spam)
+        do_nonlocal()
+        print("After nonlocal assignment:", spam)
+        do_global()
+        print("After global assignment:", spam)
+
+    scope_test()
+    print("In global scope:", spam)
+    # 请注意 局部 赋值（这是默认状态）不会改变 scope_test 对 spam 的绑定。 nonlocal 赋值会改变 scope_test 对 spam 的绑定，而 global 赋值会改变模块层级的绑定。
+    # 您还可以发现在 global 赋值之前没有 spam 的绑定。
