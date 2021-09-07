@@ -2,6 +2,11 @@
 ============
 .. code-block:: python
 
+    # 转为字典
+    dict(a='a',b='b')
+    dict(zip(['a','b'],[1,2]))
+    dict([('a',1),('b',2)])
+
     # 两个字典
     dict1 = {"name": "Joy", "age": 25}
     dict2 = {"name": "Joy", "city": "New York"}

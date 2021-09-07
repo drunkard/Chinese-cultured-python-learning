@@ -31,7 +31,90 @@ objective 目标、物体、对象。
 --------
 .. code-block:: python
 
-    issubclass
+    # callable
+    class Student():
+        def __init__(self, id, name):
+            self.id = id
+            self.name = name
+        def __repr__(self):
+            return 'id = '+self.id +', name = '+self.name
+    xiaoming = Student('001','xiaoming')
+    callable(xiaoming)  # False
+
+    class Student2(Student):
+        # 重写 __call__ 方法后就能调用了
+        def __call__(self):
+            print('I can be called')
+            print(f'my name is {self.name}')
+    t = Student('001','xiaoming')
+    callable(t)  # True
+    t()
+
+    delattr(xiaoming, 'name')
+    hasattr(xiaoming, 'name')
+    dir(xiaoming)
+    getattr(xiaoming, 'name')
+    id(xiaoming)
+    issubclass(xiaoming, Student)  # 出错
+    issubclass(xiaoming, Student2)  # 出错
+    issubclass(Student2, Student)
+    isinstance(xiaoming, Student)
+    isinstance(xiaoming, Student2)
+    isinstance(xiaoming, object)
+
+    issubclass(int, (int, float))
+
+    o = object()
+    type(o)
+
+    # 对象序列化
+    import json
+    with open('json.txt', 'w') as f:
+        json.dump([xiaoming, xiaohong], f, default=lambda obj: obj.__dict__, ensure_ascii=False, indent=2, sort_keys=True)
+
+    # 元类
+    # Tim Peters: 元类就是深度的魔法，99%的用户应该根本不必为此操心。
+    xiaoming.__class__  # __main__.Student
+    xiaoming.__class__.__class__  # type
+    Student = type('Student',(),{})  # 创建元类
+    Student  # __main__.Student
+
+
+.. code-block:: python
+
+    # 对象属性
+    # 创建属性的两种方式
+    class C:
+        def __init__(self):
+            self._x = None
+
+        def getx(self):
+            return self._x
+
+        def setx(self, value):
+            self._x = value
+
+        def delx(self):
+            del self._x
+        # 使用property类创建 property 属性
+        x = property(getx, setx, delx, "I'm the 'x' property.")
+    # 使用装饰器
+    class C:
+        def __init__(self):
+            self._x = None
+
+        @property
+        def x(self):
+            return self._x
+
+        @x.setter
+        def x(self, value):
+            self._x = value
+
+        @x.deleter
+        def x(self):
+            del self._x
+
 
 
 定义方法 - 运算方法
