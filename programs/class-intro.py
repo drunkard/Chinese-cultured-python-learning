@@ -1,9 +1,11 @@
+# 类的定义
 class Nothing:
     pass
 
-x = Nothing()
+x = Nothing()  # 实例
 
 
+# 类的继承
 class Animal(object):
     pass
 
