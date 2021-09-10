@@ -59,3 +59,38 @@ kwargs VAR_KEYWORD
 def max_len(*lists):
     return max(*lists, key=lambda v: len(v))
 max_len([1, 2, 3], [4, 5, 6, 7], [8])
+
+
+
+# 容易出错的地方：
+"""
+python中一切都是对象，函数也不列外，默认参数只是函数的一个属性。而默认参数在函数定义的时候已经求值了。
+
+Default parameter values are evaluated when the function definition is executed.
+默认参数是在定义的时候求值，而不是调用的时候。
+
+解决方法：
+A way around this is to use None as the default, and explicitly test for it in the body of the function.
+"""
+# eg1
+'''
+>>> def f(lst = []):
+...     lst.append(1)
+...     return lst
+...
+>>> f()
+[1]
+>>> f()
+[1, 1]
+'''
+# eg2:
+'''
+>>> import time
+>>> def report(when=time.time()):
+...     return when
+...
+>>> report()
+1500113234.487932
+>>> report()
+1500113234.487932
+'''

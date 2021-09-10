@@ -2,6 +2,25 @@
 ============
 通常用于存储不可变数据。
 
+定义元组，倒腾清楚：
+
+.. code-block:: python
+
+    >>> a = (1, 2)
+    >>> type(a)
+    <type 'tuple'>
+    >>> type(())
+    <type 'tuple'>
+
+    >>> a=(1)
+    >>> type(a)
+    <type 'int'>
+
+    >>> a=(1,)
+    >>> type(a)
+    <type 'tuple'>
+
+
 .. code-block:: python
 
     tuple

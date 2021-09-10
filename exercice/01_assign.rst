@@ -40,3 +40,24 @@
     a = False or True
     a = False or None or True
     a = False or None or True or []
+
+
+LEGB
+----
+属性查找规则 LEGB（local，enclousing，global，bulitin）
+
+
+避开可能的错误
+``````````````
+.. code-block:: python
+
+    >>> def create_multipliers():
+    ...     return [lambda x:i*x for i in range(5)]
+    ...
+    >>> for multiplier in create_multipliers():
+    ...     print(multiplier(2))
+
+    # 预期的结果时0，2，4，6，8. 但结果是5个8，意外不意外。
+    # 修正
+    def create_multipliers():
+        return [lambda x, i = i:i*x for i in range(5)]

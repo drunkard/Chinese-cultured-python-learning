@@ -37,6 +37,16 @@
     s = "apple"
     bytes(s, encoding='utf-8')
 
+    # 字符串方法
+    chr(0).isascii()
+    chr(127).isascii()
+    chr(128).isascii()
+    '\n'.isascii()
+    '\t'.isascii()
+    'aA'.isascii()
+    '123'.isascii()
+    '123到'.isascii()
+
     # 比较一下字符和数字占用的内存数量
     import sys
     sys.getsizeof('漢') == sys.getsizeof(ord('漢'))
