@@ -112,6 +112,7 @@
 #. ``'str is {}'.format()``
 #. ``F'{str} is str'``
 #. ``"str is %s" % str()``
+#. string.Template
 
 format
 ``````

@@ -11,9 +11,33 @@
     # 去重 - 删除重复元素
     list1 = [1, 2, 3, 3, 4, 'John', 'Ana', 'Mark', 'John']
     list(set(list1))
+    # 数组对称差, 两个数组中不同的元素，并合成为一个新的数组
+    _a, _b = set(a), set(b)
+    [item for item in a if item not in _b] + [item for item in b if item not in _a]
 
     # 列表推导式
     [c for c in 'Good good study, 天天向上']
+
+    # 最大值的 index
+    al = [5, 8, 9, 7, 10, 3, 0]
+    al.index(max(al))
+
+
+    # 二维列表
+    def initialize_2d_list(w, h, val=None):
+        return [[val for x in range(w)] for y in range(h)]
+
+    initialize_2d_list(2,2)
+    initialize_2d_list(2,2,0)
+
+
+    # 切割数组
+    def bifurcate_by(lst, fn):
+        return [
+          [x for x in lst if fn(x)],
+          [x for x in lst if not fn(x)]
+        ]
+    bifurcate_by(['beep', 'boop', 'foo', 'bar'], lambda x: x[0] == 'b')
 
 
 避免踩坑

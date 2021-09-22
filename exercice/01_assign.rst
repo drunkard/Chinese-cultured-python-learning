@@ -28,6 +28,13 @@
 
     first_val, first_val[0] = [1], 2  # first_val 最终结果是什么？
 
+    a, b, c = 'ABC'
+    a, b, c = ['A', 'B', 'C']
+    a, b, c = ('A', 'B', 'C')
+    a, b, c = {1, 2, 3}
+    a, b, c  = {'A': 1, 'A': 2, 'A': 3}
+    a, b, c  = {'A': 1, 'A': 2, 'A': 3}.items()
+
     # 赋值表达式 - 赋值时带条件判断
     a = 'value 1' if True else 'value 2'
     a = 'value 1' if 'expr' is True else 'value 2'
