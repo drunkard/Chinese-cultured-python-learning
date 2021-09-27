@@ -27,23 +27,22 @@ def get_url(url):
     response.encoding='utf-8'  # 设置页面编码，否则是乱码
     url_addr = r'<img src=".*?" data-src="(.*?)" alt="(.*?)" border="0"/>'  # 提取图片URL的正则表达式规则
     url_list = re.findall(url_addr, response.text)  # 开始提取
-    # print(url_list)
     return url_list
 
 
 #下载保存所有的图片
-def get_gif(url, a):
+def get_gif(url, fname):
     response = requests.get(url)
-    with open(dst_dir + F"/{a}.gif", 'wb') as file:
-        file.write(response.content)
+    with open(dst_dir + F"/{fname}.gif", 'wb') as f:
+        f.write(response.content)
 
 
 if __name__ == '__main__':
     url_list = get_url(portal_url)
-    a = 1
+    sn = 1
     for url, name in url_list:
         url = base_url + url
-        name = name or a  # if name is empty, use 'a' instead
+        name = name or sn  # if name is empty, use 'sn' instead
         print(F'{url} -> {name}')  # debug
         get_gif(url, name)
-        a += 1
+        sn += 1

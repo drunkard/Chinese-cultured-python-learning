@@ -3,4 +3,5 @@
 """
 
 # eg1
-filter(lambda x: x%7 == 0 or '7' in str(x), range(100))
+nums = filter(lambda x: x%7 == 0 or '7' in str(x), range(100))
+print(list(nums))
