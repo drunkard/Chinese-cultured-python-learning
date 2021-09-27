@@ -11,6 +11,13 @@ time
 
     import time
 
+    # 时间戳
+    time.time()
+    time.ctime()
+    time.ctime(time.time())
+    time.localtime()
+    time.localtime(time.time())
+
     # 计算程序执行时长
     start_time = time.time()
     total = 0

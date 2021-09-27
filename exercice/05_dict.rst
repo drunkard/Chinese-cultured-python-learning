@@ -16,6 +16,11 @@
     dict(zip(['a','b'], [1,2]))
     dict([('a',1), ('b',2)])
 
+    # 排序
+    d = {'one': 1, 'four': 4, 'eight': 8}
+    {k: d[k] for k in sorted(d.keys())}
+    {k: v for k, v in sorted(d.items(), key=lambda x: x[1])}
+
     # 两个字典
     dict1 = {"name": "Joy", "age": 25}
     dict2 = {"name": "Joy", "city": "New York"}
@@ -47,6 +52,9 @@
     for k, v in users.items():
         new[k] = v['age']
 
+    # 字典推导式
+    {x: x**x for x in range(10)}
+    {x: chr(x) for x in range(256)}
 
 
 字典方法

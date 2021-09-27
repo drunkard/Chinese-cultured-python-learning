@@ -2,13 +2,19 @@
 ====
 .. code-block:: python
 
-    from os import path
-    path.exists('/tmp')  # 路径是否存在
-
+    import os
     import path
+    import shutil
+
+    # 路径是否存在
+    os.path.exists('/tmp')
+
     p = path.Path('/tmp')
-    p.files()
     p.exists()
+    p.files()[0].exists()
+
+    # 复制
+    shutil.copyfile('source.txt', 'dest.txt')
 
 
 open
@@ -28,3 +34,5 @@ mode取值表：
     fo = open('D:/a.txt', mode='r', encoding='utf-8')
     fo.read()
 
+    # 写入文件
+    print('hello, python print', file=open('/tmp/bad', 'w'))

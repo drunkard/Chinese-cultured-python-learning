@@ -16,4 +16,14 @@
 
 看不到头的循环用 while
 ----------------------
+.. code:: python
 
+    # 无限循环
+    while True: print('一直叨叨到没电')
+    while 1: print('一直叨叨到没电')
+
+    # 累加到100
+    total = 0
+    while i <= 100:
+        total += i
+        i += 1

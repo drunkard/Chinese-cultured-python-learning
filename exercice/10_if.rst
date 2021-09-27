@@ -1,2 +1,6 @@
 条件判断
 ========
+.. code:: python
+
+    print('偶数') if 4 % 2 == 0 else print('奇数')
+    result = '偶数' if 4 % 2 == 0 else '奇数'

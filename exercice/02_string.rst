@@ -16,6 +16,7 @@
     sorted(plus)
     sorted(plus) == plus
 
+    # 字母表
     ord('a')
     ord('z')
     ord('A')
@@ -23,6 +24,20 @@
     [ord(x) for x in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
     [ord(x) for x in 'abcdefghijklmnopqrstuvwxyz']
 
+    import string
+    string.ascii_lowercase
+    string.ascii_uppercase
+    string.ascii_letters
+
+    string.printable
+    string.punctuation
+    string.whitespace
+
+    string.digits
+    string.hexdigits
+    string.octdigits
+
+    # 汉字对应的码
     ord('汉字')  # 能否执行？
     ord('汉')
     ord('漢')  # 繁体字：汉
@@ -46,6 +61,19 @@
     'aA'.isascii()
     '123'.isascii()
     '123到'.isascii()
+
+    'hello'.count('l')
+
+    # 去掉字符串里的数字
+    ''.join(list(filter(lambda x: x.isalpha(), 'dGNwX2Zhc3RvcGVuX2JsYWNraG9sZV90aW1lb3V0X3NlYwo')))
+
+    # 大写、小写
+    print("Hi my name is XiaoF".lower())
+    print("Hi my name is XiaoF".casefold())
+    print("hi my name is XiaoF".upper())
+
+    print("convert string to bytes using encode method".encode())
+    'hello, PP'.encode() == b'hello, PP'
 
     # 比较一下字符和数字占用的内存数量
     import sys
@@ -103,6 +131,12 @@
     Counter('hello, hello, python')
     Counter(['hello', 'hello', 'python'])
     Counter('hello, hello, python'.split())
+
+    # 两个单词如果包含相同的字母，次序不同，则称为字母易位词(anagram);
+    # 例如，“silent”和“listen”是字母易位词，而“apple”和“aplee”不是易位词;
+    s1 = 'below'
+    s2 = 'elbow'
+    print('is anagram') if Counter(s1) == Counter(s2) else print('not an anagram')
 
 
 字符串格式化

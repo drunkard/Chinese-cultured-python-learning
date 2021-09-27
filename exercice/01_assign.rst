@@ -26,6 +26,8 @@
     a, b = [1, 'b']
     (a, b, c), d = [(1, 2, 3), 'd']
 
+    a, *b, c = [1, 2, 3, 4, 5]
+
     first_val, first_val[0] = [1], 2  # first_val 最终结果是什么？
 
     a, b, c = 'ABC'

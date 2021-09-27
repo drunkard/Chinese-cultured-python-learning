@@ -13,6 +13,8 @@
     input
     print
     print("hello", "world", sep="*", end="@")  # sep:打印出的内容用什么连接,end:以什么为结尾
+    # 写入文件
+    print('hello, python print', file=open('/tmp/bad', 'w'))
     open
 
     len
@@ -237,3 +239,7 @@ enumerate, zip
     staticmethod
     getattr / hasattr / setattr / delattr
     isinstance / issubclass
+    isinstance(2, int)
+    isinstance('2', str)
+    isinstance('a', str)
+    isinstance([2, 3, 4], list)
