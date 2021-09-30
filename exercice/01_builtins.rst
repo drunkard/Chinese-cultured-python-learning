@@ -73,6 +73,13 @@
     any([0,0,0,[]])
     any([0,0,1])
     any([0,0,0,False,1,'good'])
+
+    # 等价写法
+    a in s or b in s or c in s
+    True in [i in s for i in [a,b,c]]
+    any(i in s for i in [a,b,c])
+    list(filter(lambda x:x in s,[a,b,c]))
+
     bool
 
 
