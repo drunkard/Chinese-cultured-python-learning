@@ -43,6 +43,12 @@
     d.get(3)
     d.get(3, '这里是默认值')
 
+    # __missing__
+    class Mydict(dict):
+        def __missing__(self, key):  # 当 Mydict 使用切片访问属性不存在的时候返回的值
+            return key
+
+
     # 字典重新映射
     users = {
         'fred': { 'user': 'fred', 'age': 40 },

@@ -16,6 +16,13 @@
     # 复制
     shutil.copyfile('source.txt', 'dest.txt')
 
+    # 文件名
+    # secure_filename 将字符串转化为安全的文件名
+    from werkzeug import secure_filename
+    secure_filename("My cool movie.mov") # output:My_cool_movie.mov
+    secure_filename("../../../etc/passwd") # output:etc_passwd
+    secure_filename(u'i contain cool \xfcml\xe4uts.txt') # output:i_contain_cool_umlauts.txt
+
 
 open
 ----

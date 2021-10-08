@@ -15,6 +15,19 @@
     max(alist)
     func(alist)
 
+    # 自动、批量赋值
+    >>> d
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'd' is not defined
+    >>> globals()['d'] = 'object'
+    >>> d
+    'object'
+
+    >>> exec('f = str')
+    >>> f
+    <class 'str'>
+
     # 多重赋值
     # 内部机制：先全部完成右边的表达式之后，再进行赋值。
     # In an assignment statement, the right-hand side is always evaluated fully before doing the actual setting of variables.

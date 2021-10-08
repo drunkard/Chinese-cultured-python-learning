@@ -20,6 +20,19 @@
     >>> type(a)
     <type 'tuple'>
 
+    # tuple使用+=奇怪的问题
+    >>> t = (1, [2, 3])
+    >>> t[1] += [4, 5]  # 会报错，但是操作成功了
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: 'tuple' object does not support item assignment
+    >>> t
+    (1, [2, 3, 4, 5])
+    >>> t[1].append('x')
+    >>> t[1].extend(['y'])
+    >>> t
+    (1, [2, 3, 4, 5, 'x', 'y'])
+
 
 .. code-block:: python
 

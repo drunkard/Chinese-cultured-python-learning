@@ -5,6 +5,18 @@ datetime
 time
 timeit
 
+
+.. code:: python
+
+    # 日期格式化
+    from datetime import datetime
+    datetime.now().strftime("%Y-%m-%d")
+
+    # 这里只有localtime可以被格式化，time是不能格式化的
+    import time
+    time.strftime("%Y-%m-%d", time.localtime())
+
+
 time
 ----
 .. code-block:: python

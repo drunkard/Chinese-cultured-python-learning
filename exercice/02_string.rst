@@ -169,6 +169,28 @@ format
 18      	{:^10d}	' 18 '	中间对齐 (宽度为10)
 
 
+html
+----
+.. code:: python
+
+    >>> import html
+    >>> html.escape("这是 <python>")
+    '这是 &lt;python&gt;'
+    >>> html.unescape("这是 &lt;python&gt;")
+    '这是 <python>'
+
+
+URL
+---
+.. code:: python
+
+    >>> from urllib import parse
+    >>> parse.quote('URL 中的汉字')
+    'URL%20%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97'
+    >>> parse.unquote('URL%20%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97')
+    'URL 中的汉字'
+
+
 正则表达式 - re 模块
 --------------------
 匹配；

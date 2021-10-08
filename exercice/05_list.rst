@@ -8,6 +8,10 @@
     num_list[-1]
     num_list.pop()
 
+    # 切片
+    # 每3个元素一组
+    [[x for x in range(1, 101)][i:i+3] for i in range(0, 100, 3)]
+
     # 反转列表
     num_list[::-1]
     num_list.reverse()
