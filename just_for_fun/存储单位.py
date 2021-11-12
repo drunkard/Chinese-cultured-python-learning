@@ -68,17 +68,21 @@ def show_names():
     # 大数据风行，人们经常说到的这些B单位究竟是什么意思？
     t.setup(width=1.0, height=1.0)
     t.hideturtle(); t.penup()
-    t.goto(0, -300)
     t.bgcolor('black')
     t.colormode(255)
+    axis_y = 1
     b = 0
+    fontsize = 30
     for u in units.keys():
         t.clear()
         t.color(255, 255, b)
         b += 18
-        t.write(u, align='center', font=('Arial', 400, 'normal'))
+        t.write(u, align='center', font=('Arial', int(fontsize), 'normal'))
+        fontsize *= 1.3
+        axis_y *= 1.65
+        t.goto(0, -axis_y)
         time.sleep(0.3)
-    time.sleep(1)
+    time.sleep(2)
 
 def show_numbers():
     us = list(units.keys())
