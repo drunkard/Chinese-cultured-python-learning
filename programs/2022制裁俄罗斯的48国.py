@@ -122,7 +122,16 @@ def plot(name, y, df):
     # 全局设置图尺寸，英寸
     plt.rcParams['figure.figsize'] = (14, 14)
 
-    dfp = df.plot.pie(y=y, fontsize=12, rotatelabels=45, legend=False)
+    plt.rcParams['text.color'] = '#1874CD'
+
+    dfp = df.plot.pie(
+        y=y,
+        fontsize=24,
+        rotatelabels=45,
+        # radius=0.8,
+        legend=False,
+        ylabel='',  # hide figure title
+    )
     # plt.show()
     fig = dfp.get_figure()
     fn = f"/data/DOWNLOAD/48国_{name}.png"
