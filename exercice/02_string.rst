@@ -139,6 +139,12 @@
     print('is anagram') if Counter(s1) == Counter(s2) else print('not an anagram')
 
 
+unicode
+-------
+.. code:: python
+    '\u2b50'
+
+
 字符串格式化
 ------------
 几种用法，比如：

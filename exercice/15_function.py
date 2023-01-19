@@ -14,47 +14,6 @@ print((add if b > a else subtract)(a,b))
 [add, subtract][1](a, b)
 
 
-# 参数
-from inspect import signature
-def f(a, b, c=2, *args, **kwargs):
-    print(f'a={a} b={b} c={c} args={args} kwargs={kwargs}')
-
-f(1, 2, 3, 4, 5, width=200, height=100)
-f(1, 2, 3, 4, c='AAA', width=200, height=100)  # 会出错
-f(1, 2, c=3, width=200, height=100)
-f(1, 2)
-
-for k,v in signature(f).parameters.items():
-    print(k, v.kind)  # 查看函数的参数类型
-'''结果：
-a POSITIONAL_OR_KEYWORD
-b POSITIONAL_OR_KEYWORD
-c POSITIONAL_OR_KEYWORD
-args VAR_POSITIONAL
-kwargs VAR_KEYWORD
-'''
-
-# 只允许关键字参数：第一个参数设置为 *
-'''
-def f(*, a, b, c=2, *args, **kwargs):  # 语法错误，因为第一个参数是*，表示只允许位置参数，后面却有 *args
-    print(f'a={a} b={b} c={c} args={args} kwargs={kwargs}')
-'''
-def f(*, a, b, c=2, **kwargs):
-    print(f'a={a} b={b} c={c} kwargs={kwargs}')
-f(1, 2, 3, 4)  # 会报错，因为此时函数不接受位置参数
-    # TypeError: f() takes 0 positional arguments but 4 were given
-f(a=1, b=2, x=3, y=4)
-
-for k,v in signature(f).parameters.items():
-    print(k, v.kind)  # 查看函数的参数类型
-'''结果：
-a KEYWORD_ONLY
-b KEYWORD_ONLY
-c KEYWORD_ONLY
-kwargs VAR_KEYWORD
-'''
-
-
 # lambda
 def max_len(*lists):
     return max(*lists, key=lambda v: len(v))
@@ -93,4 +52,83 @@ A way around this is to use None as the default, and explicitly test for it in t
 1500113234.487932
 >>> report()
 1500113234.487932
+'''
+
+
+
+
+# 参数
+'''
+Python 传参方式灵活，主要有:
+    按照位置传参
+    按照关键字传参
+    默认参数
+    元组传参
+    字典传参
+    综合传参
+'''
+# 按照位置传参
+def func1(a, b):
+    return a+b*2
+
+# 按照关键字传参
+def func2(a, b):
+    'func(b=1,a=2)时，则按照b=1，a=2的方式形参与实参对应，匹配的方式是关键字而非位置'
+    return a+b*2
+
+# 默认参数
+def func3(a, b, c=3):
+    return a+b*2+c
+
+# 元组传参
+def func4(*args):
+    '传入的参数以元组的形式呈现，长度不限，可以通过元组的访问方式依次访问各个入参：'
+    for eacharg in args:
+        print ('tuple arg:', eacharg)
+
+# 字典传参
+def func5(**kwargs):
+    '传入的参数以字典的形式呈现，长度不限，可以通过字典的访问方式依次访问各个入参：'
+    "eg: func(English_name='PythonSomething',  Chinese_name='Python那些事')"
+    for eachkwarg in kwargs.keys():
+        print('Dict Arg', eachkwarg, ':', kwargs[eachkwarg])
+
+# 综合传参
+from inspect import signature
+def f(a, b, c=2, *args, **kwargs):
+    print(f'a={a} b={b} c={c} args={args} kwargs={kwargs}')
+
+f(1, 2, 3, 4, 5, width=200, height=100)
+f(1, 2, 3, 4, c='AAA', width=200, height=100)  # 会出错
+f(1, 2, c=3, width=200, height=100)
+f(1, 2)
+
+for k,v in signature(f).parameters.items():
+    print(k, v.kind)  # 查看函数的参数类型
+'''结果：
+a POSITIONAL_OR_KEYWORD
+b POSITIONAL_OR_KEYWORD
+c POSITIONAL_OR_KEYWORD
+args VAR_POSITIONAL
+kwargs VAR_KEYWORD
+'''
+
+# 只允许关键字参数：第一个参数设置为 *
+'''
+def f(*, a, b, c=2, *args, **kwargs):  # 语法错误，因为第一个参数是*，表示只允许位置参数，后面却有 *args
+    print(f'a={a} b={b} c={c} args={args} kwargs={kwargs}')
+'''
+def f(*, a, b, c=2, **kwargs):
+    print(f'a={a} b={b} c={c} kwargs={kwargs}')
+f(1, 2, 3, 4)  # 会报错，因为此时函数不接受位置参数
+    # TypeError: f() takes 0 positional arguments but 4 were given
+f(a=1, b=2, x=3, y=4)
+
+for k,v in signature(f).parameters.items():
+    print(k, v.kind)  # 查看函数的参数类型
+'''结果：
+a KEYWORD_ONLY
+b KEYWORD_ONLY
+c KEYWORD_ONLY
+kwargs VAR_KEYWORD
 '''

@@ -23,6 +23,8 @@
     # 去重 - 删除重复元素
     list1 = [1, 2, 3, 3, 4, 'John', 'Ana', 'Mark', 'John']
     list(set(list1))
+    # 是否有重复的元素
+    len(lst) == len(set(lst))
 
     # 数组对称差, 两个数组中不同的元素，并合成为一个新的数组
     _a, _b = set(a), set(b)
@@ -68,12 +70,26 @@
     # 推导式
     [x for x in range(10)]
 
+    # 展开嵌套列表
+    # eg1 创建递归函数
+    def flatten(li):
+        return sum(([x] if not isinstance(x, list) else flatten(x) for x in li), [])
+    >>> list_1 = [1, 2, [3], [4, [5, 6]]]
+    >>> print(flatten(list_1))
+    [1, 2, 3, 4, 5, 6]
+
+    # eg2 列表推导式
+    >>> li = [[14], [215, 383, 87], [298], [374], [2, 3, 4, 5, 6, 7]]
+    >>> flat_list = [item for sublist in li for item in sublist]
+    >>> print(flat_list)
+    [14, 215, 383, 87, 298, 374, 2, 3, 4, 5, 6, 7]
+
 
 避免踩坑
 --------
 .. code-block:: python
 
-    # 生成嵌套列表
+    # 生成嵌套列表, 这种方法有问题
     >>> a= [[]] * 10
     >>> a
     [[], [], [], [], [], [], [], [], [], []]
@@ -108,6 +124,13 @@
      140424517371712,
      140424524018304,
      140424520280448]
+
+
+    # 生成嵌套列表、阵列、 array
+    header = ['a', 'b', 'c', 'd', ]  # 标题，以后可能会增减
+    init_len = 10
+    result = [[0 for _1 in header] for _2 in range(init_len)]
+    result.insert(header)
 
 
 在访问列表的时候，修改列表
