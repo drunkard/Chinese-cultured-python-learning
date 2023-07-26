@@ -1,7 +1,7 @@
 列表操作技巧
 ============
+读取，各种读法。
 .. code-block:: python
-
     num_list = list(range(10))
 
     # 最后一个元素
@@ -11,6 +11,12 @@
     # 切片
     # 每3个元素一组
     [[x for x in range(1, 101)][i:i+3] for i in range(0, 100, 3)]
+
+
+操作，各种操作方法。
+.. code:: python
+    # 指定位置插入元素
+    num_list.insert(2, 'a')
 
     # 反转列表
     num_list[::-1]
@@ -29,6 +35,8 @@
     # 数组对称差, 两个数组中不同的元素，并合成为一个新的数组
     _a, _b = set(a), set(b)
     [item for item in a if item not in _b] + [item for item in b if item not in _a]
+
+
 
     # 列表推导式
     [c for c in 'Good good study, 天天向上']

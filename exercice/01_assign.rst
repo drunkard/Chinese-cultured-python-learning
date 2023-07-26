@@ -83,3 +83,8 @@ LEGB
     # 修正
     def create_multipliers():
         return [lambda x, i = i:i*x for i in range(5)]
+
+
+赋值题
+------
+

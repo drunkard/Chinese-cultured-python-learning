@@ -113,6 +113,7 @@ args VAR_POSITIONAL
 kwargs VAR_KEYWORD
 '''
 
+
 # 只允许关键字参数：第一个参数设置为 *
 '''
 def f(*, a, b, c=2, *args, **kwargs):  # 语法错误，因为第一个参数是*，表示只允许位置参数，后面却有 *args
@@ -132,3 +133,30 @@ b KEYWORD_ONLY
 c KEYWORD_ONLY
 kwargs VAR_KEYWORD
 '''
+
+
+
+# 参数类型提示。 只是个提示，不会真的去检查参数类型。
+# https://docs.python.org/3.11/whatsnew/3.11.html#new-features-related-to-type-hints
+from typing import NotRequired, Required, Self, TypedDict
+class Movie(TypedDict):
+   title: str
+   year: NotRequired[int]
+'''output:
+m1: Movie = {"title": "Black Panther", "year": 2018}  # OK
+m2: Movie = {"title": "Star Wars"}  # OK (year is not required)
+m3: Movie = {"year": 2022}  # ERROR (missing required field title)
+'''
+# 这个和上面的定义等价
+class Movie2(TypedDict, total=False):
+   title: Required[str]
+   year: int
+
+class MyLock:
+    def __enter__(self) -> Self:
+        self.lock()
+        return self
+class MyInt:
+    @classmethod
+    def fromhex(cls, s: str) -> Self:
+        return cls(int(s, 16))

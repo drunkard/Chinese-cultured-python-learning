@@ -169,3 +169,14 @@ else:
     print('没有执行 break ，正常完成了，所以显示')
 
 
+
+# or 简化代码
+d = {'a': 1, 'b': 2, 'c': 3}
+# 常规写法
+if d.get('d'):
+    char = d.get('d')
+else:
+    char = 'd'
+# python极简写法
+char = d.get('d', 4)  # 仅限于字典
+char = d.get('d') or 4
